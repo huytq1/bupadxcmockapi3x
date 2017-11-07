@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "bupamockapi3xConsoleApp", "bupamockapi3xConsoleApp\bupamockapi3xConsoleApp.njsproj", "{2DD5092C-01E7-4893-821B-44A1220F169D}"
 EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "bupamockWebApp", "bupamockWebApp\bupamockWebApp.njsproj", "{B8521014-B673-4C00-8000-CF71C349A50C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2DD5092C-01E7-4893-821B-44A1220F169D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2DD5092C-01E7-4893-821B-44A1220F169D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2DD5092C-01E7-4893-821B-44A1220F169D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8521014-B673-4C00-8000-CF71C349A50C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8521014-B673-4C00-8000-CF71C349A50C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8521014-B673-4C00-8000-CF71C349A50C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8521014-B673-4C00-8000-CF71C349A50C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

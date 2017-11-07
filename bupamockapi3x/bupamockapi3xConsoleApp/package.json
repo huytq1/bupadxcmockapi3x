@@ -5,5 +5,33 @@
   "main": "app.js",
   "author": {
     "name": "htran84"
+  },
+  "dependencies": {
+    "dom-parser": "^0.1.5",
+    "express": "^4.15.4",
+    "js-yaml": "^3.8.3",
+    "json-refs": "^2.1.6",
+    "lodash": "^4.17.4",
+    "request": "^2.81.0",
+    "swagger": "^0.7.5",
+    "swagger-express-mw": "^0.7.0",
+    "swagger-ui-express": "^1.0.7"
+  },
+  "devDependencies": {
+    "@types/express": "^4.0.35",
+    "@types/lodash": "ts2.0",
+    "@types/node": "^6.0.69",
+    "@types/swagger-express-mw": "^0.7.0",
+    "nodemon": "^1.11.0",
+    "typescript": "^2.2.2"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "test": "swagger project test",
+    "dev": "nodemon app.js"
+  },
+  "engines": {
+    "node": ">=6.10.2",
+    "npm": ">=3.10.10"
   }
 }

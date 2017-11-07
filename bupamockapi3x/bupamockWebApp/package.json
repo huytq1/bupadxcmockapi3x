@@ -1,0 +1,9 @@
+{
+  "name": "bupamock-web-app",
+  "version": "0.0.0",
+  "description": "bupamockWebApp",
+  "main": "app.js",
+  "author": {
+    "name": "htran84"
+  }
+}
