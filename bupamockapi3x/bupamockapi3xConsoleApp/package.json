@@ -1,0 +1,9 @@
+{
+  "name": "bupamockapi3x-console-app",
+  "version": "0.0.0",
+  "description": "bupamockapi3xConsoleApp",
+  "main": "app.js",
+  "author": {
+    "name": "htran84"
+  }
+}
