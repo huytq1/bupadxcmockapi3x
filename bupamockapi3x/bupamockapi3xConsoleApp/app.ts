@@ -24,7 +24,7 @@ loadSpec('./api/swagger/swagger.yaml').then(spec => {
 
         middleware.register(app);
 
-        const port = process.env.PORT || 10010;
+        const port = process.env.PORT || 1000;
         app.listen(port);
 
         console.log('App listening on port ' + port);

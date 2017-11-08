@@ -19,7 +19,7 @@ loadSpec('./api/swagger/swagger.yaml').then(function (spec) {
             validatorUrl: null
         }));
         middleware.register(app);
-        var port = process.env.PORT || 10010;
+        var port = process.env.PORT || 1000;
         app.listen(port);
         console.log('App listening on port ' + port);
     });
