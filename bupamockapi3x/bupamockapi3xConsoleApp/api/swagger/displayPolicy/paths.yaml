@@ -1,0 +1,169 @@
+/api/ssp/memberships/{membershipId}/policydetails:
+  x-swagger-router-controller: displayPolicyControllser
+  get:
+    tags:
+      - Display Policy
+    operationId: getPolicyDetails
+    parameters:
+      - name: membershipId
+        in: path
+        required: true
+        type: integer
+        format: int64
+    responses:
+        200:
+            description: Success
+            schema:
+                $ref: "#/definitions/PolicySummary"
+
+/api/ssp/memberships/{membershipId}/productsummary:
+  x-swagger-router-controller: displayPolicyControllser
+  get:
+    tags:
+      - Display Policy
+    operationId: getPolicyCoverSummary
+    parameters:
+      - name: membershipId
+        in: path
+        required: true
+        type: integer
+        format: int64
+      - name: "StatusDate"
+        in: "query"
+        description: "statusDate"
+        required: true
+        type: "string"
+      - name: "State"
+        in: "query"
+        description: "state"
+        required: true
+        type: "string"
+      - name: "FamilyType"
+        in: "query"
+        description: "familyType"
+        required: true
+        type: "string"
+      - name: "PackageCode"
+        in: "query"
+        description: "packageCode"
+        required: true
+        type: "string"
+    responses:
+        200:
+            description: Success
+            schema:
+                $ref: "#/definitions/ProductSummary"
+
+/api/ssp/memberships/{membershipId}/paymentsandclaimssummary:
+  x-swagger-router-controller: displayPolicyControllser
+  get:
+    tags:
+      - Display Policy
+    operationId: getPolicyClaimsandPaymentsTotals
+    parameters:
+      - name: membershipId
+        in: path
+        required: true
+        type: integer
+        format: int64
+    responses:
+        200:
+            description: Success
+            schema:
+                $ref: "#/definitions/MembershipClaimsPaymentSummary"
+
+/api/ssp/memberships/{membershipId}/communicationpreferences:
+  x-swagger-router-controller: displayPolicyControllser
+  get:
+    tags:
+      - Display Policy
+    operationId: getPolicyCommunicationPreferences
+    parameters:
+      - name: membershipId
+        in: path
+        required: true
+        type: integer
+        format: int64
+    responses:
+        200:
+            description: Success
+            schema:
+                $ref: "#/definitions/CommPreference"
+
+/api/ssp/memberships/{membershipId}/personsonpolicy:
+  x-swagger-router-controller: displayPolicyControllser
+  get:
+    tags:
+      - Display Policy
+    operationId: getPersonsOnPolicy
+    parameters:
+      - name: membershipId
+        in: path
+        required: true
+        type: integer
+        format: int64
+    responses:
+        200:
+            description: Success
+            schema:
+                $ref: "#/definitions/PersonsOnPolicy"
+
+/api/ssp/memberships/{membershipId}/customers/{personId}/modalities:
+  x-swagger-router-controller: displayPolicyControllser
+  get:
+    tags:
+      - Display Policy
+    operationId: getRemainigLimits
+    parameters:
+      - name: membershipId
+        in: path
+        required: true
+        type: integer
+        format: int64
+      - name: personId
+        in: path
+        required: true
+        type: integer
+        format: int64
+    responses:
+        200:
+            description: Success
+            schema:
+                $ref: "#/definitions/Modality"
+/api/ssp/memberships/{membershipId}/customers/{personId}/specialfeatures:
+  x-swagger-router-controller: displayPolicyControllser
+  get:
+    tags:
+      - Display Policy
+    operationId: getSpecialFeatures
+    parameters:
+      - name: membershipId
+        in: path
+        required: true
+        type: integer
+        format: int64
+      - name: personId
+        in: path
+        required: true
+        type: integer
+        format: int64
+    responses:
+        200:
+            description: Success
+            schema:
+                $ref: "#/definitions/SpacialFeature"
+/api/ssp/memberships/{membershipId}/additionalPolicyDetail:
+  x-swagger-router-controller: displayPolicyControllser
+  get:
+    tags:
+      - Display Policy
+    operationId: getAdditionalPolicyDetails
+    parameters:
+      - name: membershipId
+        in: path
+        required: true
+        type: integer
+        format: int64
+    responses:
+        200:
+            description: Success

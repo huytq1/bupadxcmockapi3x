@@ -1,0 +1,45 @@
+InputGetPaymentCardToken:
+  properties:
+    sessionId:
+      type: ["number", "null"]
+    crmCallBackUrl:
+      type: string
+    tokenisationClientType:
+      type: string
+
+CardTokenisationInfo:
+  properties:
+    sst:
+      type: string
+    merchantId:
+      type: string
+    iframeUrl:
+      type: string
+    sessionId:
+      type: number
+
+InputGetPaymentCardInfo:
+  properties:
+    sst:
+      type: string
+    merchantId:
+      type: string
+    iframeUrl:
+      type: string
+    sessionId:
+      type: number
+
+PaymentCardInfo:
+  properties:
+    cardBrandName:
+      type: string
+    cardHolderName:
+      type: string
+    personPaymentCardId:
+      type: number
+    maskedCardNumber:
+      type: string
+    expiryMonth:
+      type: string
+    expiryYear:
+      type: string

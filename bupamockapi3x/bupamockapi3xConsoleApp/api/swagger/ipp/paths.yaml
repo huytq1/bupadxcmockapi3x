@@ -1,0 +1,38 @@
+/api/ssp/Persons/{personid}/PaymentCards/SecureSessionToken:
+  x-swagger-router-controller: ippController
+  post:
+    tags:
+      - IPP Payment
+    operationId: getSessionToken
+    parameters:
+      - name: personid
+        in: path
+        required: true
+        type: string
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: "#/definitions/InputGetPaymentCardToken"
+    responses:
+      "200":
+        description: Success
+        schema:
+          $ref: "#/definitions/CardTokenisationInfo"
+/api/ssp/PaymentCards:
+  x-swagger-router-controller: ippController
+  post:
+    tags:
+      - IPP Payment
+    operationId: getPaymentCardInformation
+    parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: "#/definitions/InputGetPaymentCardInfo"
+    responses:
+      "200":
+        description: Success
+        schema:
+          $ref: "#/definitions/PaymentCardInfo"

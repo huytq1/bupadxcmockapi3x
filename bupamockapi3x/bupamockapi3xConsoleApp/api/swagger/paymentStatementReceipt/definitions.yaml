@@ -1,0 +1,88 @@
+  PersonContactInfo:
+    properties:
+      personId: 
+        type: integer 
+      work: 
+        type: ["string","null"]
+      home: 
+        type: ["string","null"]
+      mobile: 
+        type: ["string","null"]
+      email: 
+        type: ["string","null"]
+  CorrespondenceResponse:
+    properties:
+     documentBytes:
+        type: string
+     communicationID:
+        type: ["string","null"]
+  AddressesResponse:
+    properties:
+      addressList:
+        type: array
+        items:
+          $ref: "#/definitions/Address"
+
+  Address:
+   properties:
+     street1:
+       type: string
+     street2:
+       type: string 
+     street3:
+       type: string 
+     city:
+       type: string 
+     state:
+       type: string 
+     zip:
+       type: string 
+     country:
+       type: string 
+     addressType:
+       type: string
+
+  PaymentCorrespondenceRequestBody:
+    properties:
+      membershipId:
+        type: integer 
+      personId:
+        type: integer 
+      paymentDateFrom:
+        type: string
+      paymentDateTo:
+        type: string
+      statementType:
+        type: string
+      correspondenceType:
+        type: string
+      contributorName: 
+        type: string
+      transactionId:
+        type:  integer
+      transactionIdType:
+        type: string
+      referenceId:
+        type: ["string","null"]
+      deliveryDetails:
+        type: object
+        items:
+          $ref: "#/definitions/DeliveryDetail"
+          
+  DeliveryDetail:
+    required:
+      - deliveryMethod
+      - recipient
+    properties:
+      deliveryMethod:
+        type: string
+      recipient: 
+        type: string
+      recipientAddress:
+        type: object
+        items: 
+          $ref: "#/definitions/Address"
+      recipientContactInfo:
+        type: object
+        items: 
+          $ref: "#/definitions/PersonContactInfo"

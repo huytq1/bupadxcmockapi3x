@@ -1,0 +1,88 @@
+  /api/ssp/communicationSummary:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: communicationsHistoryController
+    get:
+      tags:
+        - Communications History
+      description: Returns 'CommunicationSummary' to the caller
+      # used as the method name of the controller
+      operationId: getCommunicationSummary
+      parameters:
+        - name: membershipId
+          in: query
+          description: membership Id
+          type: integer
+          format: int64
+        - name: personId
+          in: query
+          description: personId
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Success
+          schema:
+              $ref: "#/definitions/CommunicationSummaryList"
+        # responses may fall through to errors
+        default:
+          description: Error
+
+  /api/ssp/communicationDetails/{communicationId}:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: communicationsHistoryController
+    get:
+      tags:
+        - Communications History
+      description: Returns 'CommunicationDetails' to the caller
+      # used as the method name of the controller
+      operationId: getCommunicationDetail
+      parameters:
+        - name: communicationId
+          in: path
+          required: true
+          description: communication Id
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Success
+          schema:
+              $ref: "#/definitions/CommunicationDetails"
+        # responses may fall through to errors
+        default:
+          description: Error
+
+  /api/ssp/communicationDocument/{documentId}:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: communicationsHistoryController
+    get:
+      tags:
+        - Communications History
+      description: Returns 'DocumentResponse' to the caller
+      # used as the method name of the controller
+      operationId: getCommunicationDocument
+      parameters:
+        - name: documentId
+          in: path
+          required: true
+          description: document Id
+          type: integer
+          format: int64
+        - name: src
+          in: query
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+              $ref: "#/definitions/DocumentResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+
+  
+
+
+
+
+ 

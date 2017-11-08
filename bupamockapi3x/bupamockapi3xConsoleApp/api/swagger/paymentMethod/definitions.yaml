@@ -1,0 +1,4 @@
+UpdatePaymentMethodInput:
+  properties:
+    frequency:
+      type: string

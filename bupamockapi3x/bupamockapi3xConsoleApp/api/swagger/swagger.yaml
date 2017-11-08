@@ -1,0 +1,103 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: Bupa Mock Apis
+
+# during dev, should point to your local machine
+#host: localhost:10010
+
+# basePath prefixes all resource paths
+basePath: /
+#
+#schemes:
+  # tip: remove http to make production-grade
+  #- http
+  #- https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+paths:
+  /swagger:
+    x-swagger-pipe: swagger_raw
+
+x-include:
+  - paths:
+      $ref: communicationsHistory/paths.yaml
+    definitions:
+      $ref: communicationsHistory/definitions.yaml
+  
+  - paths:
+      $ref: paymentStatementReceipt/paths.yaml
+    definitions:
+      $ref: paymentStatementReceipt/definitions.yaml
+  - paths:
+      $ref: paymentHistory/paths.yaml
+    definitions:
+      $ref: paymentHistory/definitions.yaml
+
+  - paths:
+      $ref: paymentPending/paths.yaml
+    definitions:
+      $ref: paymentPending/definitions.yaml
+
+  - paths:
+      $ref: payment/paths.yaml
+    definitions:
+      $ref: payment/definitions.yaml
+
+  - paths:
+      $ref: customerSearch/paths.yaml
+    definitions:
+      $ref: customerSearch/definitions.yaml
+  - paths:
+      $ref: hugoSession/paths.yaml
+    definitions:
+      $ref: hugoSession/definitions.yaml
+
+  - paths:
+      $ref: reference/paths.yaml
+
+  - paths:
+      $ref: bsbValidation/paths.yaml
+    definitions:
+      $ref: bsbValidation/definitions.yaml
+  - paths:
+      $ref: ancillaryModalityLimit/paths.yaml
+    definitions:
+      $ref: ancillaryModalityLimit/definitions.yaml
+
+  - paths:
+      $ref: paymentEnquiry/paths.yaml
+    definitions:
+      $ref: paymentEnquiry/definitions.yaml
+  - paths:
+      $ref: ipp/paths.yaml
+    definitions:
+      $ref: ipp/definitions.yaml
+  - paths:
+      $ref: policyDetail/paths.yaml
+    definitions:
+      $ref: policyDetail/definitions.yaml
+  - paths:
+      $ref: membershipAdditionalInfo/paths.yaml
+    definitions:
+      $ref: membershipAdditionalInfo/definitions.yaml
+  - paths:
+      $ref: displayPerson/paths.yaml
+    definitions:
+      $ref: displayPerson/definitions.yaml
+  - paths:
+      $ref: displayPolicy/paths.yaml
+    definitions:
+      $ref: displayPolicy/definitions.yaml
+  - paths:
+      $ref: paymentMethod/paths.yaml
+    definitions:
+      $ref: paymentMethod/definitions.yaml
+  - paths:
+      $ref: claimHistory/paths.yaml
+    definitions:
+      $ref: claimHistory/definitions.yaml

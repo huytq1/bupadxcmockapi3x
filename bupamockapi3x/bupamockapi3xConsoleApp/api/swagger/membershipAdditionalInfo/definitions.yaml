@@ -1,0 +1,44 @@
+﻿membershipAdditionalInfo:
+ properties:
+    currentPaymentMethod:
+      type: string
+    isGrandFathered:
+      type: boolean
+    isMlsApplicable:
+      type: boolean
+    totalActiveCards:
+      type: number
+      format: integer
+    isSpeEligibility:
+      type: boolean
+    isPaymentImpact:
+      type: boolean
+
+personAddress:
+  properties:
+    street1:
+      type: string
+    street2:
+      type: string
+    street3:
+      type: string
+    addressType:
+      type: number
+Address:
+  properties:
+    street1:
+      type: string
+    street2:
+      type: string
+    street3:
+      type: string
+    city:
+      type: string
+    state:
+      type: string
+    zip:
+      type: string
+    country:
+      type: string
+    addressType:
+      type: string

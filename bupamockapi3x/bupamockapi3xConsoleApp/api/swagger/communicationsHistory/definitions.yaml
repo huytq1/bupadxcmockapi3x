@@ -1,0 +1,66 @@
+﻿CommunicationSummaryList:
+  properties:
+    communicationSummaryList:
+      type: array
+      items:
+        $ref: "#/definitions/CommunicationSummary"
+
+CommunicationSummary:
+   properties:
+    id:
+      type: string
+    membershipId:
+      type: ["integer", "null"]
+    personId:
+      type: ["integer", "null"]
+    recipient:
+      type: ["string", "null"]
+    category:
+      type: ["string", "null"]
+    description:
+      type: ["string", "null"]
+    sentOn:
+      type: ["string", "null"]
+    deliveryMethod:
+      type: ["string", "null"]
+
+CommunicationDetails:
+  properties:
+    sourceId:
+      type: string
+    source:
+      type: ["string", "null"]
+    requestedOn:
+      type: ["string", "null"]
+    generatedOn:
+      type: ["string", "null"]
+    status:
+      type: ["string", "null"]
+    detail:
+      type: ["string", "null"]
+    sentTo:
+      type: ["string", "null"]
+    sentBy:
+      type: ["string", "null"]
+    documentList:
+      type: array
+      items:
+        $ref: "#/definitions/CommunicationDocument"
+
+CommunicationDocument:
+  properties:
+    id:
+      type: string
+    title:
+      type: ["string", "null"]
+    url:
+      type: ["string", "null"]
+    smsText:
+      type: ["string", "null"]
+    documentAccessMode:
+      type: string
+
+DocumentResponse:
+  properties:
+    dataReturn:
+      type: string

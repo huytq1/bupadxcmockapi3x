@@ -1,0 +1,17 @@
+﻿/api/ssp/memberships/{membershipId}/policydetail:
+  x-swagger-router-controller: policyDetailController
+  get:
+    tags:
+      - policy Detail
+    operationId: getPolicyDetail
+    parameters:
+      - name: membershipId
+        in: path
+        required: true
+        type: integer
+        format: int64
+    responses:
+      "200":
+        description: Success
+        schema:
+          $ref: "#/definitions/policyDetail"

@@ -1,0 +1,167 @@
+  PaymentHistory:
+    properties:
+      paymentHistoryList:
+        type: array
+        items:
+          $ref: "#/definitions/PaymentSummary"
+  PaymentSummary:
+    required:
+      - membershipId
+    properties:
+      membershipId:
+        type: integer
+      transactionId:
+        type: integer
+      transactionIdType:
+        type: ["string","null"]
+      paymentDate:
+        type: ["string","null"]
+      amount:
+        type: number
+      adjustment:
+        type: number
+      paymentMethod:
+        type: ["string","null"]
+      transactionType:
+        type: ["string","null"]
+      status:
+        type: ["string","null"]
+      datePaidTo:
+        type: ["string","null"]
+      changed:
+        type: boolean
+  PaymentHistoryDetail:
+    required:
+      - membershipId
+      - transactionId
+    properties:
+      membershipId:
+        type: integer
+      transactionId:
+        type: integer
+      amount:
+        type: number
+      transactionType:
+        type: ["string","null"]
+      paymentDate:
+        type: ["string","null"]
+      status:
+        type: ["string","null"]
+      datePaidFrom:
+        type: ["string","null"]
+      datePaidTo:
+        type: ["string","null"]
+      refundDate:
+        type: ["string","null"]
+      refundStatus:
+        type: ["string","null"]
+      adjustmentDate:
+        type: ["string","null"]
+      adjustmentAmount:
+        type: number
+      dishonourDate:
+        type: ["string","null"]
+      dishonouredAmount:
+        type: number
+      dishonourReason:
+        type: ["string","null"]
+      rateDate:
+        type: ["string","null"]
+      levelOfCover:
+        type: ["string","null"]
+      scale:
+        type: ["string","null"]
+      state:
+        type: ["string","null"]
+      corporateGroup:
+        type: ["string","null"]
+      processedDate:
+        type: ["string","null"]
+      paymentMethod:
+        type: ["string","null"]
+      paymentType:
+        type: ["string","null"]
+      paymentReference:
+        type: ["string","null"]
+      receiptNumber:
+        type: ["string","null"]
+      rateSummary:
+        type: object
+        items:
+          $ref: "#/definitions/RateSummary"
+      rejectedDate:
+        type: ["string","null"]
+      rejectedAmount:
+        type: number
+      rejectedReason:
+        type: ["string","null"]
+      writeOffDate:
+        type: ["string","null"]
+      writeOffAmount:
+        type: number
+      writeOffPeriod:
+        type: ["string","null"]
+      writeOffReason:
+        type: ["string","null"]
+      membershipIdFrom:
+        type: number
+      membershipIdTo:
+        type: number
+      originalDatePaidTo:
+        type: ["string","null"]
+      paymentHistoryChanges:
+        type: array
+        items:
+          $ref: "#/definitions/PaymentHistoryChange"
+  PaymentHistoryChange:
+    properties:
+      product:
+        type: ["string","null"]
+      rounding:
+        type: number
+      lhc1Amount:
+        type: number
+      lhc1Percent:
+        type: number
+      lhc2Amount:
+        type: number
+      lhc2Percent:
+        type: number
+      dateFrom:
+        type: ["string","null"]
+      dateTo:
+        type: ["string","null"]
+      state:
+        type: ["string","null"]
+      corporateGroup:
+        type: ["string","null"]
+      rateDate:
+        type: ["string","null"]
+      changed:
+        type: boolean
+      scale:
+        type: ["string","null"]
+      rateSummary:
+        type: object
+        items:
+          $ref: "#/definitions/RateSummary"
+  RateSummary:
+    properties:
+      rebateAmount:
+        type: number
+      rebatePercent:
+        type: number
+      lhcAmount:
+        type: number
+      lhcPercent:
+        type: number
+      discountAmount:
+        type: number
+      discountPercent:
+        type: number
+      baseAmount:
+        type: number
+      gst:
+        type: number
+      netAmount:
+        type: number

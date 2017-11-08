@@ -1,0 +1,275 @@
+/api/ssp/memberships/{membershipId}/currentpaymentdetail:
+  x-swagger-router-controller: paymentController
+  get:
+    tags:
+      - Payment
+    operationId: getMemberCurrentPaymentDetails
+    parameters:
+      - name: membershipId
+        in: path
+        required: true
+        type: integer
+        format: int64
+    responses:
+      "200":
+        description: Success
+        schema:
+          $ref: "#/definitions/CurrentPaymentDetail"
+
+/api/ssp/membership/{membershipId}/calculator/directdebit:
+  x-swagger-router-controller: paymentController
+  post:
+    tags:
+      - Payment
+    operationId: calculateDirectDebitPremium
+    parameters:
+      - name: membershipId
+        in: path
+        required: true
+        type: integer
+        format: int64
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: "#/definitions/CalculatorRequestBody"
+    responses:
+      "200":
+        description: Success
+        schema:
+          $ref: "#/definitions/DirectDebitInfo"
+
+
+/api/ssp/membership/{membershipId}/calculator/singlepayment:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: paymentController
+    post:
+        tags:
+            - Payment
+        # used as the method name of the controller
+        operationId: caculateSinglePayment
+        parameters:
+          - name: membershipId
+            in: path
+            description: membership Id
+            required: true
+            type: integer
+            format: int64
+          - name: body
+            in: body
+            required: true
+            schema:
+                $ref: "#/definitions/CalculateSinglePaymentData"
+        responses:
+            "200":
+                description: Success
+                schema:
+                    $ref: "#/definitions/SinglePaymentInfo"
+            # responses may fall through to errors
+            default:
+                description: Error
+
+/api/ssp/memberships/{membershipId}/calculator/refund:
+  x-swagger-router-controller: paymentController
+  post:
+    tags:
+        - Payment
+    operationId: caculateRefund
+    parameters:
+      - name: membershipId
+        in: path
+        required: true
+        type: integer
+        format: int64
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: "#/definitions/RefundRequestBody"
+    responses:
+      "200":
+        description: Success
+        schema:
+          $ref: "#/definitions/RefundPaymentInfo"
+
+/api/ssp/Persons/{contactId}/PaymentCards:
+  x-swagger-router-controller: paymentController
+  get:
+    tags:
+      - Payment
+    operationId: getPaymentCardList
+    parameters:
+      - name: contactId
+        in: path
+        required: true
+        type: string
+    responses:
+      "200":
+        description: Success
+        schema:
+          type: array
+          items:
+            $ref: "#/definitions/PaymentCardInfo"
+/api/ssp/memberships/{membershipId}/directdebit:
+  x-swagger-router-controller: paymentController
+  put:
+    tags:
+      - Payment
+    operationId: updateDirectDebit
+    parameters:
+      - name: membershipId
+        in: path
+        required: true
+        type: integer
+        format: int64
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: "#/definitions/DirectDebitSetupInformation"
+    responses:
+      "200":
+        description: Success
+/api/ssp/memberships/{membershipId}/singlepayment:
+  x-swagger-router-controller: paymentController
+  post:
+    tags:
+      - Payment
+    operationId: updateSinglePayment
+    parameters:
+      - name: membershipId
+        in: path
+        required: true
+        type: integer
+        format: int64
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: "#/definitions/SinglePaymentTransactionInfo"
+    responses:
+      "200":
+        description: Success
+        schema:
+          $ref: "#/definitions/RealTimePaymentStatusResponse"
+/api/ssp/PaymentCards/{personPaymentCardId}:
+  x-swagger-router-controller: paymentController
+  get:
+    tags:
+        - Payment
+    operationId: getPaymentCardInfo
+    parameters:
+      - name: personPaymentCardId
+        in: path
+        required: true
+        type: integer
+        format: int64
+    responses:
+      "200":
+        description: Success
+        schema:
+          $ref: "#/definitions/PaymentCardInfo"
+  put:
+    tags:
+      - Payment
+    operationId: updatePaymentCardInformation
+    parameters:
+      - name: personPaymentCardId
+        in: path
+        required: true
+        type: integer
+        format: int64
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: "#/definitions/InputUpdatePaymentCardExpiryDate"
+    responses:
+      "200":
+        description: Success
+/api/ssp/memberships/{membershipId}/refund:
+  x-swagger-router-controller: paymentController
+  put:
+    tags:
+      - Payment
+    operationId: updateRefund
+    parameters:
+      - name: membershipId
+        in: path
+        required: true
+        type: integer
+        format: int64
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: "#/definitions/RefundTransactionInfo"
+    responses:
+      "200":
+        description: Success
+/api/ssp/memberships/{membershipId}/policystatus:
+  x-swagger-router-controller: paymentController
+  get:
+    tags:
+      - Payment
+    operationId: getPolicyStatus
+    parameters:
+      - name: membershipId
+        in: path
+        required: true
+        type: integer
+        format: int64
+    responses:
+      "200":
+        description: Success
+        schema:
+          $ref: "#/definitions/MembershipPolicyStatus"
+/api/ssp/memberships/{membershipId}/payments/{transactionId}/realTimePaymentReceipt:
+  x-swagger-router-controller: paymentController
+  put:
+    tags:
+      - Payment
+    operationId: createReceipt
+    parameters:
+      - name: membershipId
+        in: path
+        required: true
+        type: integer
+        format: int64
+      - name: transactionId
+        in: path
+        required: true
+        type: integer
+        format: int64
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: "#/definitions/MembershipTransactionRequest"
+    responses:
+      "200":
+        description: Success
+        schema:
+          $ref: "#/definitions/RealTimePaymentStatusResponse"
+/api/ssp/memberships/{membershipId}/payments/{transactionId}/realTimePaymentStatus:
+  x-swagger-router-controller: paymentController
+  get:
+    tags:
+      - Payment
+    operationId: getRealTimePaymentStatusEnquiry
+    parameters:
+      - name: membershipId
+        in: path
+        required: true
+        type: integer
+        format: int64
+      - name: transactionId
+        in: path
+        required: true
+        type: integer
+        format: int64
+    responses:
+      "200":
+        description: Success
+        schema:
+          $ref: "#/definitions/RealTimePaymentStatusResponse"

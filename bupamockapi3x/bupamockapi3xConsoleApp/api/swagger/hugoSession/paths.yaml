@@ -1,0 +1,68 @@
+/api/ssp/memberships/{membershipId}/hugosession:
+  x-swagger-router-controller: hugoSessionController
+  post:
+    tags:
+      - Hugo Session
+    operationId: createSession
+    parameters:
+      - name: membershipId
+        in: path
+        required: true
+        type: integer
+        format: int64
+      - name: body
+        in: body
+        required: true
+        schema:
+            $ref: "#/definitions/InteractionInfo"
+    responses:
+        200:
+            description: Success
+            schema:
+                $ref: "#/definitions/SessionIdModel"
+/api/ssp/memberships/{membershipId}/interactionlog:
+  x-swagger-router-controller: hugoSessionController
+  post:
+    tags:
+      - Hugo Session
+    operationId: createMembershipNote
+    parameters:
+      - name: membershipId
+        in: path
+        required: true
+        type: integer
+        format: int64
+      - name: body
+        in: body
+        required: true
+        schema:
+            $ref: "#/definitions/MemberInteractionLog"
+    responses:
+        200:
+            description: OK
+            schema:
+                $ref: "#/definitions/NoteIdModel"
+/api/ssp/memberships/{membershipId}/hugosession/{sessionId}:
+  x-swagger-router-controller: hugoSessionController
+  put:
+    tags:
+      - Hugo Session
+    operationId: closeSession
+    parameters:
+      - name: membershipId
+        in: path
+        required: true
+        type: integer
+        format: int64
+      - name: sessionId
+        in: path
+        required: true
+        type: string
+      - name: body
+        in: body
+        required: true
+        schema:
+            $ref: "#/definitions/InteractionInfo"
+    responses:
+        200:
+            description: success

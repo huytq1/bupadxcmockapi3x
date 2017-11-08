@@ -1,0 +1,80 @@
+/api/membership/{membershipId}/customers:
+  x-swagger-router-controller: customerSearchController
+  get:
+    tags:
+      - CustomerSearch
+    operationId: getCustomerByCustomerId
+    parameters:
+      - name: membershipId
+        in: path
+        required: true
+        type: integer
+        format: int64
+    responses:
+      "200":
+        description: Success
+        schema:
+          $ref: "#/definitions/CustomerResultWrapper"
+
+
+/api/membership/{membershipId}/customers/{personId}:
+    x-swagger-router-controller: customerSearchController
+    get:
+        tags:
+            - CustomerSearch
+        operationId: getCustomerDetailWithMembershipId
+        parameters:
+          - name: membershipId
+            in: path
+            description: membership Id
+            required: true
+            type: integer
+            format: int64
+          - name: personId
+            in: path
+            required: true
+            type: integer
+            format: int64
+        responses:
+            "200":
+                description: Success
+                schema:
+                    $ref: "#/definitions/CustomerResultWrapper"
+
+/api/customers/{personId}:
+  x-swagger-router-controller: customerSearchController
+  get:
+    tags:
+        - CustomerSearch
+    operationId: getCustomerDetail
+    parameters:
+      - name: personId
+        in: path
+        required: true
+        type: integer
+        format: int64
+    responses:
+      "200":
+        description: Success
+        schema:
+          $ref: "#/definitions/CustomerResultWrapper"
+
+
+/api/customers:
+  x-swagger-router-controller: customerSearchController
+  get:
+    tags:
+      - CustomerSearch
+    operationId: getCustomerByAttribute
+    parameters:
+      - name: firstName
+        in: query
+        type: string
+      - name: lastName
+        in: query
+        type: string
+    responses:
+      "200":
+        description: Success
+        schema:
+          $ref: "#/definitions/CustomerResultWrapper"

@@ -1,0 +1,106 @@
+PendingTransaction:
+  properties:
+    pendingTransactionList:
+      type: array
+      items:
+        $ref: "#/definitions/PendingTransactionSummary"
+PendingTransactionSummary:
+  properties:
+    membershipId:
+      type: integer
+    requestedDate:
+      type: ["string", "null"]
+      format: datetime
+    transactionId:
+      type: integer
+    paymentDate:
+      type: ["string", "null"]
+    Amount:
+      type: integer
+    paymentMethod:
+      type: ["string", "null"]
+    paymentType:
+      type: ["string", "null"]
+
+PendingDirectDebitDetail:
+  required:
+    - membershipId
+    - transactionId
+  properties:
+    membershipId:
+      type: integer
+    transactionId:
+      type: integer
+    nextDirectDebitDate:
+      type: ["string","null"]
+    datePaidTo:
+      type: ["string","null"]
+    frequency:
+      type: ["string","null"]
+    amount:
+      type: number
+    paymentType:
+      type: ["string","null"]
+    paymentDetails:
+      type: ["string","null"]
+    requestedId:
+      type: ["string","null"]
+
+PendingRefundDetail:
+  required:
+    - membershipId
+    - transactionId
+  properties:
+    membershipId:
+      type: integer
+    transactionId:
+      type: integer
+    requestedDate:
+      type: ["string","null"]
+    alternateAccount:
+      type: ["string","null"]
+    amount:
+      type: number
+    paymentType:
+      type: ["string","null"]
+    paymentDetails:
+      type: ["string","null"]
+    requestedId:
+      type: ["string","null"]
+    misalignmentFlag:
+      type: boolean
+
+PendingSinglePaymentDetail:
+  required:
+    - membershipId
+    - paymentDate
+  properties:
+    membershipId:
+      type: integer
+    paymentDate:
+      type: ["string","null"]
+    requestedDate:
+      type: ["string","null"]
+    runDate:
+      type: ["string","null"]
+    periodOfPayment:
+      type: ["string","null"]
+    amount:
+      type: number
+    paymentType:
+      type: ["string","null"]
+    paymentDetails:
+      type: ["string","null"]
+    requestedId:
+      type: ["string","null"]
+    misalignmentFlag:
+      type: boolean
+
+DeletePendingTransactionRequest:
+  properties:
+    paymentMethod:
+      type: ["string","null"]
+    paymentDate:
+      type: ["string","null"]
+    transactionId:
+      type: integer

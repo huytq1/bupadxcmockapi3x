@@ -1,0 +1,47 @@
+CustomerResultWrapper:
+  properties:  
+    count:
+      type: number
+    resultType:
+      type: number
+    hasError: 
+      type: boolean
+    message:
+      type: string  
+    result:
+      type: array
+      items:
+        $ref: "#/definitions/Customer"
+
+Customer:
+  properties:
+    membershipId:
+      type: ["integer", "null"]
+    customerId:
+      type: ["integer", "null"]
+    firstName: 
+      type: ["string", "null"]
+    lastName: 
+      type: ["string", "null"]
+    middleName: 
+      type: ["string", "null"]
+    preferredName: 
+      type: ["string", "null"]
+    birthDate:
+      type: ["string", "null"]
+      format: datetime
+    familyType:
+      type: ["string", "null"]
+    relationshipType:
+      type: ["string", "null"]
+    productCoverName:
+      type: ["string", "null"]
+    datePaidTo:
+      type: ["string", "null"]
+      format: datetime
+    corporateGroupName:
+      type: ["string", "null"]
+    membershipStatus:
+      type: ["string", "null"]
+    coveredPersonStatus:
+      type: ["string", "null"]

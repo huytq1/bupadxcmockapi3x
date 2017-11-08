@@ -1,0 +1,22 @@
+PersonName:
+  properties:
+    title:
+      type: string
+    firstName:
+      type: string
+    secondName:
+      type: string
+    preferredName:
+      type: string
+    surName:
+      type: string
+    suffix:
+      type: string
+    displayName:
+      type: string
+MembershipAdditionalProperties:
+  properties:
+    isAIC:
+      type: boolean
+    isOSHC:
+      type: boolean

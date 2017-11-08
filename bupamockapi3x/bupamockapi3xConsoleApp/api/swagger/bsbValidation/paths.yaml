@@ -1,0 +1,17 @@
+/api/ssp/bsb/{bsbNumber}:
+  x-swagger-router-controller: bsbValidationController
+  get:
+    tags:
+      - BSB Validation
+    operationId: validateBsb
+    parameters:
+      - name: bsbNumber
+        in: path
+        required: true
+        type: integer
+        format: int64
+    responses:
+      "200":
+        description: Success
+        schema:
+          $ref: "#/definitions/BsbInformation"

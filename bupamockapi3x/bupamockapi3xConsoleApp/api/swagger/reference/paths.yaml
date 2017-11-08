@@ -1,0 +1,13 @@
+/api/reference/paymentfrequency:
+  x-swagger-router-controller: referenceController
+  get:
+    tags:
+      - Reference
+    operationId: getPaymentFrequencies
+    responses:
+      "200":
+        description: Success
+        schema:
+          type: array
+          items:
+            type: string

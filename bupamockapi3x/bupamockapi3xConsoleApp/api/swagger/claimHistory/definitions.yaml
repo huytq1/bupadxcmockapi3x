@@ -1,0 +1,133 @@
+AncillaryClaim:
+  properties:
+    status:
+     type: ["string", "null"]
+    source:
+     type: ["string", "null"]
+    statusReason:
+     type: ["string", "null"]
+    claimNumber:
+     type: ["string", "null"]
+    claimDate:
+     type: ["string", "null"]
+     format: datetime
+    totalFeeCharged:
+     type: ["number", "null"]
+     format: double
+    totalBenefit:
+     type: ["number", "null"]
+     format: double
+    payments:
+      type: array
+      items:
+        $ref: "#/definitions/Payments"
+    claimItemGroups:
+      type: array
+      items:
+        $ref: "#/definitions/AncillaryClaimItemGroup"
+AncillaryClaimSummary:
+  properties:
+   status:
+     type: ["string", "null"]
+   source:
+     type: ["string", "null"]
+   statusReason:
+     type: ["string", "null"]
+   claimNumber:
+     type: ["string", "null"]
+   claimDate:
+     type: ["string", "null"]
+     format: datetime
+   numberOfItems:
+     type: ["number", "null"]
+   totalFeeCharged:
+     type: ["number", "null"]
+     format: double
+   totalBenefit:
+     type: ["number", "null"]
+     format: double
+# Details Model
+Payments:
+  properties:
+    statusDate: 
+      type: ["string", "null"]
+      format: datetime
+    paymentType:
+      type: ["string", "null"]
+    payee:
+      type: ["string", "null"]
+    paymentDetails:
+      type: ["string", "null"]
+    amount:
+      type: ["number", "null"]
+      format: double
+    status:
+      type: ["string", "null"]
+    statusReason:
+      type: ["string", "null"]
+AncillaryClaimItemGroup:
+  properties:
+    patient:
+      type: ["string", "null"]
+    dateOfBirth:
+      type: ["string", "null"]
+      format: datetime
+    provider:
+      $ref: "#/definitions/Provider"
+    modality:
+      type: ["string", "null"]
+    serviceDate:
+      type: ["string", "null"]
+      format: datetime
+    feeCharged:
+      type: ["number", "null"]
+      format: double
+    benefit:
+      type: ["number", "null"]
+      format: double
+    leverOfCover:
+      type: ["string", "null"]
+    paymentType:
+      type: ["string", "null"]
+    claimItems:
+      type: array
+      items:
+        $ref:  "#/definitions/ClaimItem"
+Provider:
+  properties:
+    name:
+      type: ["string", "null"]
+    number:
+      type: ["string", "null"]
+    address:
+      type: ["string", "null"]
+ClaimItem:
+  properties:
+   itemNumber:
+    type: ["string", "null"]
+   numberOfServices:
+    type: ["number", "null"]
+    format: double
+   feeCharged:
+    type: ["number", "null"]
+    format: double
+   benefit:
+    type: ["number", "null"]
+    format: double
+   outOfPocket:
+    type: ["number", "null"]
+    format: double
+   status:
+     type: ["string", "null"]
+   statusReason:
+     type: ["string", "null"]
+   benefitBonus:
+     type: ["number", "null"]
+     format: double
+   topUpBonus:
+     type: ["number", "null"]
+     format: double
+   stepDown:
+     type: ["string", "null"]
+   serviceDescription:
+     type: ["string", "null"]

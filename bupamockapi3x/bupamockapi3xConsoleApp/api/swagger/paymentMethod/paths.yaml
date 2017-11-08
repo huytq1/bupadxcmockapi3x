@@ -1,0 +1,42 @@
+/api/ssp/memberships/{membershipId}/renewal:
+  x-swagger-router-controller: paymentMethodController
+  put:
+    tags:
+      - Payment Method
+    operationId: updatePaymentMethod
+    parameters:
+      - name: membershipId
+        in: path
+        required: true
+        type: integer
+        format: int64
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: "#/definitions/UpdatePaymentMethodInput"
+    responses:
+      "200":
+        description: Success
+/api/ssp/memberships/{membershipId}/calculator/renewal:
+  x-swagger-router-controller: paymentMethodController
+  post:
+    tags:
+      - Payment Method
+    operationId: calculateRenewalAmount
+    parameters:
+      - name: membershipId
+        in: path
+        required: true
+        type: integer
+        format: int64
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: "#/definitions/UpdatePaymentMethodInput"
+    responses:
+      "200":
+        description: Success
+        schema:
+          $ref: "#/definitions/PaymentRenewalInfo"

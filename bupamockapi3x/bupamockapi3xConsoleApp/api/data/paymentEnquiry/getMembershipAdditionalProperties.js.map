@@ -1,0 +1,1 @@
+{"version":3,"file":"getMembershipAdditionalProperties.js","sourceRoot":"","sources":["getMembershipAdditionalProperties.ts"],"names":[],"mappings":";;AAAA,kBAAe;IACd;QACE,OAAO,EAAE,EAAE,YAAY,EAAE,QAAQ,EAAE;QACnC,QAAQ,EAAE;YACR,IAAI,EAAE;gBACL,KAAK,EAAC,IAAI;gBACV,MAAM,EAAE,KAAK;aACb;SACF;KACF;CACD,CAAA"}

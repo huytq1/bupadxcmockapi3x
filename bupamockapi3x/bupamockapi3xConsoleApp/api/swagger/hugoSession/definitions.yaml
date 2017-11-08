@@ -1,0 +1,34 @@
+InteractionInfo:
+    properties:
+        personId:
+            type: ["number", "null"]
+        interactionId:
+            type: ["string", "null"]
+        contactInitiatedBy:
+            type: ["string", "null"]
+        contactMethod:
+            type: ["string", "null"]
+
+MemberInteractionLog:
+    properties:
+        personId:
+            type: ["number", "null"]
+        interactionDate:
+            type: ["string", "null"]
+            format: datetime
+        interactionId:
+            type: ["string", "null"]
+        sessionId:
+            type: ["number", "null"]
+        note:
+            type: string
+
+SessionIdModel:
+    properties:
+        sessionId:
+            type: ["string", "null"]
+
+NoteIdModel:
+    properties:
+        noteId:
+            type: ["string", "null"]

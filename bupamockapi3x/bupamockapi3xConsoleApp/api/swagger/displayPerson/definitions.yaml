@@ -1,0 +1,96 @@
+AddressResponse:
+    properties:
+        street1:
+            type: ["string", "null"]
+        street2:
+            type: ["string", "null"]
+        street3:
+            type: ["string", "null"]
+        city:
+            type: ["string", "null"]
+        state:
+            type: ["string", "null"]
+        zip:
+            type: ["string", "null"]
+        country:
+            type: ["string", "null"]
+        addressType:
+            $ref: "#/definitions/ObjectValue"
+
+ContactInfoResponse:
+    properties:
+        personId:
+            type: integer
+        work:
+            type: ["string", "null"]
+        home:
+            type: ["string", "null"]
+        mobile:
+            type: ["string", "null"]
+        email:
+            type: ["string", "null"]
+CommunicationResponse:
+    properties:
+        sentOn:
+            type: ["string"]
+            format: datetime
+        membershipNo:
+            type: number
+        category:
+            type: ["string"]
+        description:
+            type: ["string"]
+        recipient:
+            type: ["string"]
+        communicationMethod	:
+            type: ["string"]
+PolicyResponse:
+    properties:
+        status:
+          type: ["string", "null"]
+        levelOfCover:
+          type: ["string", "null"]
+        membershipId:
+          type: ["string", "null"]
+        relationshipToPolicy:
+          type: ["string", "null"]
+        hasExtras:
+          type: boolean
+        hasMedicalHospital:
+          type: boolean
+        policyType:
+          $ref: "#/definitions/ObjectValue"
+        package:
+          $ref: "#/definitions/ObjectValue"
+ClaimCategorySummary:
+    properties:
+        category:
+          type: ["string", "null"]
+        amountPaid:
+          type: ["number", "null"]
+ClaimYearlySummary:
+    properties:
+        year:
+          type: ["number", "null"]
+        totalAmountPaid:
+          type: ["number", "null"]
+        totalAmountClaimed:
+          type: ["number", "null"]
+        totalClaims:
+          type: ["number", "null"]
+PersonClaimsResponse:
+    properties:
+        currentYearTotalPaid:
+          type: ["string", "null"]
+        previousYearTotalPaid:
+          type: ["number", "null"]
+        extraTop5Claims:
+          type: ["string", "null"]
+        medicalHospitalYearlySummary:
+          type: ["string", "null"]
+ObjectValue:
+    properties:
+        Value:
+          type: ["string", "null"]
+        Description:
+          type: ["string", "null"]

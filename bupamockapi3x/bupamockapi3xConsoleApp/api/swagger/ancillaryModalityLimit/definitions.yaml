@@ -1,0 +1,16 @@
+AncillaryModality:
+  properties:
+    name:
+      type: string
+    limit:
+      type: number
+    used:
+      type: number
+    usedPercentage:
+      type: number
+AncillaryModalityLimit:
+  properties:
+    limitReached:
+      type: boolean
+    ancillaryModalities:
+      type: string

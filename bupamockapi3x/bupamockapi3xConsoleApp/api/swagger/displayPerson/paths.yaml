@@ -1,0 +1,142 @@
+/api/ssp/customers/{personId}/addresses:
+    x-swagger-router-controller: displayPersonController
+    get:
+        tags:
+          - Display Person
+        operationId: getPersonAddressInfo
+        parameters:
+          - name: personId
+            in: path
+            required: true
+            type: integer
+            format: int64
+        responses:
+            200:
+                description: Success
+                schema:
+                    $ref: "#/definitions/AddressResponse"
+/api/ssp/memberships/{membershipId}/customers/{personId}/addresses:
+    x-swagger-router-controller: displayPersonController
+    get:
+        tags:
+          - Display Person
+        operationId: getPolicyPersonAddress
+        parameters:
+          - name: membershipId
+            in: path
+            required: true
+            type: integer
+            format: int64
+          - name: personId
+            in: path
+            required: true
+            type: integer
+            format: int64
+        responses:
+            200:
+                description: Success
+                schema:
+                    $ref: "#/definitions/AddressResponse"
+
+/api/ssp/customers/{personId}/contactinfo:
+    x-swagger-router-controller: displayPersonController
+    get:
+        tags:
+          - Display Person
+        operationId: getPersonContactInfo
+        parameters:
+          - name: personId
+            in: path
+            required: true
+            type: integer
+            format: int64
+        responses:
+            200:
+                description: Success
+                schema:
+                    $ref: "#/definitions/ContactInfoResponse"
+/api/ssp/memberships/{membershipId}/customers/{personId}/contactinfo:
+    x-swagger-router-controller: displayPersonController
+    get:
+        tags:
+          - Display Person
+        operationId: getPolicyPersonContactInfo
+        parameters:
+          - name: membershipId
+            in: path
+            required: true
+            type: integer
+            format: int64
+          - name: personId
+            in: path
+            required: true
+            type: integer
+            format: int64
+        responses:
+            200:
+                description: Success
+                schema:
+                    $ref: "#/definitions/ContactInfoResponse"
+/api/ssp/memberships/{membershipId}/customers/{personId}/comms:
+    x-swagger-router-controller: displayPersonController
+    get:
+        tags:
+          - Display Person
+        operationId: getPersonMembershipCommunications
+        parameters:
+          - name: membershipId
+            in: path
+            required: true
+            type: integer
+            format: int64
+          - name: personId
+            in: path
+            required: true
+            type: integer
+            format: int64
+        responses:
+          "200":
+            description: Success
+            schema:
+              type: array
+              items:
+                $ref: "#/definitions/CommunicationResponse"
+/api/ssp/customers/{personId}/memberships:
+    x-swagger-router-controller: displayPersonController
+    get:
+        tags:
+          - Display Person
+        operationId: getPersonPoliciesInformation
+        parameters:
+          - name: personId
+            in: path
+            required: true
+            type: integer
+            format: int64
+        responses:
+            200:
+                description: Success
+                schema:
+                    $ref: "#/definitions/PolicyResponse"
+/api/ssp/memberships/{membershipId}/customers/{personId}/personclaims:
+    x-swagger-router-controller: displayPersonController
+    get:
+        tags:
+          - Display Person
+        operationId: getTop5Claims
+        parameters:
+          - name: personId
+            in: path
+            required: true
+            type: integer
+            format: int64
+          - name: membershipId
+            in: path
+            required: true
+            type: integer
+            format: int64
+        responses:
+            200:
+                description: Success
+                schema:
+                    $ref: "#/definitions/PersonClaimsResponse"

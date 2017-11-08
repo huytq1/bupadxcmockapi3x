@@ -1,0 +1,22 @@
+﻿policyDetail:
+  properties:  
+    medicareRebate:
+      type: string
+    suspensionType:
+      type: string
+    levelOfCover: 
+      type: string
+    productScale: 
+      type: string
+    totalCombinedLhc: 
+      type: number
+      format: double
+    adult1Status:
+      type: string
+    adult2Status:
+      type: string
+    policyState: 
+      type: string
+    lastChangeDate:
+      type: string
+      format: datetime

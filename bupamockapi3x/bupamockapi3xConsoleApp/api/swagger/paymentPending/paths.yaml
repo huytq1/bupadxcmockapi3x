@@ -1,0 +1,140 @@
+  /api/ssp/memberships/{membershipId}/pendingtransactions:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: paymentPendingController
+    get:
+      tags:
+        - Payment Pending
+      description: Returns 'paymentpending' to the caller
+      # used as the method name of the controller
+      operationId: getPendingTransactions
+      parameters:
+        - name: membershipId
+          in: path
+          description: membership Id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Success
+          schema:
+              $ref: "#/definitions/PendingTransaction"
+        # responses may fall through to errors
+        default:
+          description: Error
+    delete:
+      tags:
+        - Payment Pending
+      description: Returns 'delete' to the caller
+      # used as the method name of the controller
+      operationId: deletePendingTransaction
+      parameters:
+        - name: membershipId
+          in: path
+          description: id
+          required: true
+          type: integer
+          format: int64
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/DeletePendingTransactionRequest"
+      responses:
+        "200":
+          description: Success
+
+  /api/ssp/memberships/{membershipId}/pendingtransactions/directdebit/{paymentDate}:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: paymentPendingController
+    get:
+      tags:
+        - Payment Pending
+      description: Returns 'Hello' to the caller
+      # used as the method name of the controller
+      operationId: getPendingDirectDebitDetail
+      parameters:
+        - name: membershipId
+          in: path
+          description: id
+          required: true
+          type: integer
+          format: int64
+        - name: paymentDate
+          in: path
+          description: payment date
+          required: true
+          type: string
+          format: datetime
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/PendingDirectDebitDetail"
+        # responses may fall through to errors
+        default:
+          description: Error
+
+  /api/ssp/memberships/{membershipId}/pendingtransactions/refund/{transactionId}:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: paymentPendingController
+    get:
+      tags:
+        - Payment Pending
+      description: Returns 'Hello' to the caller
+      # used as the method name of the controller
+      operationId: getPendingRefundDetail
+      parameters:
+        - name: membershipId
+          in: path
+          description: id
+          required: true
+          type: integer
+          format: int64
+        - name: transactionId
+          in: path
+          description: transaction id
+          required: true
+          type: integer
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/PendingRefundDetail"
+        # responses may fall through to errors
+        default:
+          description: Error
+
+  /api/ssp/memberships/{membershipId}/pendingtransactions/singlepayment/{paymentDate}:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: paymentPendingController
+    get:
+      tags:
+        - Payment Pending
+      description: Returns 'Hello' to the caller
+      # used as the method name of the controller
+      operationId: getPendingSinglePaymentDetail
+      parameters:
+        - name: membershipId
+          in: path
+          description: id
+          required: true
+          type: integer
+          format: int64
+        - name: paymentDate
+          in: path
+          description: payment date
+          required: true
+          type: string
+          format: datetime
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/PendingSinglePaymentDetail"
+        # responses may fall through to errors
+        default:
+          description: Error

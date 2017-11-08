@@ -1,0 +1,51 @@
+/api/membership/memberships/{membershipId}/currentcontribtor/name:
+  x-swagger-router-controller: paymentEnquiryController
+  get:
+    tags:
+      - Payment Enquiry
+    operationId: getCurrentContributorName
+    parameters:
+      - name: membershipId
+        in: path
+        required: true
+        type: integer
+        format: int64
+    responses:
+        200:
+            description: Success
+            schema:
+                $ref: "#/definitions/PersonName"
+/api/membership/memberships/{membershipId}/additionalproperties:
+  x-swagger-router-controller: paymentEnquiryController
+  get:
+    tags:
+      - Payment Enquiry
+    operationId: getMembershipAdditionalProperties
+    parameters:
+      - name: membershipId
+        in: path
+        required: true
+        type: integer
+        format: int64
+    responses:
+        200:
+            description: Success
+            schema:
+                $ref: "#/definitions/MembershipAdditionalProperties"
+/api/claims/memberships/{membershipId}/latestservicedate:
+  x-swagger-router-controller: paymentEnquiryController
+  get:
+    tags:
+      - Payment Enquiry
+    operationId: getClaimsLatestServiceDate
+    parameters:
+      - name: membershipId
+        in: path
+        required: true
+        type: integer
+        format: int64
+    responses:
+        200:
+          description: Success
+          schema:
+            type: "string"

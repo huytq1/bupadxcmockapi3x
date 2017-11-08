@@ -1,0 +1,130 @@
+  /api/ssp/memberships/{membershipId}/customers/{personId}/contactinfo:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: paymentStatementReceiptController
+    get:
+      tags:
+        - Payment Statement Receipt
+      description: Returns 'PersonContactInfo' to the caller
+      # used as the method name of the controller
+      operationId: getContactInformationDetail
+      parameters:
+        - name: membershipId
+          in: path
+          description: membership Id
+          required: true
+          type: integer
+          format: int64
+        - name: personId
+          in: path
+          description: personId
+          required: true
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Success
+          schema:
+              $ref: "#/definitions/PersonContactInfo"
+        # responses may fall through to errors
+        default:
+          description: Error
+
+  /api/ssp/memberships/{membershipId}/customers/{personId}/addresses:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: paymentStatementReceiptController
+    get:
+      tags:
+        - Payment Statement Receipt
+      description: Returns 'CorrespondenceResponse' to the caller
+      # used as the method name of the controller
+      operationId: getAddressInformation
+      parameters:
+        - name: membershipId
+          in: path
+          description: membership Id
+          required: true
+          type: integer
+          format: int64
+        - name: personId
+          in: path
+          description: PersonId
+          required: true
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Success
+          schema:
+              $ref: "#/definitions/Address"
+        # responses may fall through to errors
+        default:
+          description: Error
+
+  /api/ssp/memberships/{membershipId}/persons/{personId}/sendPaymentCorrespondence:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: paymentStatementReceiptController
+    post:
+      tags:
+        - Payment Statement Receipt
+      description: Returns 'Communication Detail' to the caller
+      # used as the method name of the controller
+      operationId: getCommunicationInformation
+      parameters:
+        - name: membershipId
+          in: path
+          description: membership Id
+          required: true
+          type: integer
+          format: int64
+        - name: personId
+          in: path
+          description: PersonId
+          required: true
+          type: integer
+          format: int64
+        - name:  body
+          required: true
+          description: Payment Core respondence RequestBody
+          in: body
+          schema:
+            $ref: "#/definitions/PaymentCorrespondenceRequestBody"
+      responses:
+        "200":
+          description: Success
+          schema:
+              $ref: "#/definitions/CorrespondenceResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+
+
+  /api/ssp/addresses:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: paymentStatementReceiptController
+    get:
+      tags:
+        - Payment Statement Receipt
+      description: Returns 'AddressesResponse' to the caller
+      # used as the method name of the controller
+      operationId: getAddressValidation
+      parameters:
+        - name: addressLine
+          in: query
+          description: The search criteria for the address, could be partial or full address 
+          required: true
+          type: string
+        - name: top
+          in: query
+          description: top (int) - The maximum number of addressed to be returned by the API to CRM - Expected values- any integer between 1-10)  searchCriteria of address
+          required: false
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Success
+          schema:
+              $ref: "#/definitions/AddressesResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+  

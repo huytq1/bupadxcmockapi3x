@@ -1,0 +1,207 @@
+PolicySummary:
+  properties:
+    detailsSummary:
+      $ref: "#/definitions/PolicyDetailsSummary"
+    financialSummary:
+      $ref: "#/definitions/PolicyFinancialSummary"
+    items:
+        type: array
+        items:
+          $ref: "#/definitions/ExceptionError"
+
+PolicyDetailsSummary:
+  properties:
+    levelofCover:
+      type: string
+    effectiveDate:
+      type: ["string", "null"]
+      format: datetime
+    scale:
+      type: string
+    state:
+      type: string
+    corporateGroup:
+      type: string
+    rebate:
+      type: number
+    incomeTier:
+      type: ["number","null"]
+    combinedLHC:
+      type: number
+    policyAdultInformation:
+      type: array
+      items:
+        $ref: "#/definitions/PolicyAdultInfo"
+    badge:
+      type: string
+    packageCode:
+      type: string
+    isSpeEligibility:
+      type: boolean
+
+PolicyFinancialSummary:
+  properties:
+    datePaidTo:
+      type: ["string", "null"]
+      format: datetime
+    premiumAmount:
+      type: number
+    paymentMethod:
+      type: string
+    paymentType:
+      type: string
+    nextDirectDebitDate:
+      type: ["string", "null"]
+      format: datetime
+    frequency:
+      type: string
+    lastRenewalSentDate:
+      type: ["string", "null"]
+      format: datetime
+    groupPaidToDate:
+      type: ["string", "null"]
+      format: datetime
+
+PolicyAdultInfo:
+  properties:
+    lhc:
+      type: number
+    lhcPercentage:
+      type: number
+    status:
+      type: string
+    daysWithoutCover:
+      type: number
+    contractRelationship:
+      type: string
+
+ProductSummary:
+  properties:
+    hasHospital:
+      type: boolean
+    hasExtra:
+      type: boolean
+    levelOfCover:
+      type: string
+    productCovers:
+      type: array
+      items:
+        $ref: "#/definitions/CoverDetail"
+
+CoverDetail:
+  properties:
+    coverType:
+      type: string
+    coverDetails:
+      type: string
+    category:
+      type: string
+
+ExceptionError:
+  properties:
+      code:
+        type: string
+      message:
+        type: string
+      severity:
+        type: number
+      classification:
+        type: number
+MembershipClaimsPaymentSummary:
+  properties:
+    totalClaims:
+      type: number
+    totalPremiums:
+      type: number
+
+CommPreference:
+  properties:
+    summaryCommPreference:
+      $ref: "#/definitions/CommPreferenceInfo"
+    membershipCommPreference:
+      $ref: "#/definitions/CommPreferenceInfo"
+    items:
+        type: array
+        items:
+          $ref: "#/definitions/ExceptionError"
+
+CommPreferenceInfo:
+  properties:
+    description:
+      type: string
+    type:
+      type: ["string", "null"]
+    details:
+      type: string
+    recipient:
+      type: string
+    optOut:
+      type: boolean
+
+PersonsOnPolicy:
+  properties:
+    personName:
+      type: string
+    dateOfBirth:
+      type: ["string", "null"]
+    relationshipToPolicy:
+      type: string
+    hasCover:
+      type: boolean
+	personId:
+      type: number
+
+ServiceInfo:
+  properties:
+    servicesNumber:
+      type: number
+    servicesUsed:
+      type: number
+    usedPercent:
+      type: ["number", "null"]
+
+LimitAmountInfo:
+  properties:
+    usedAmount:
+      type: ["number", "null"]
+    limitAmount:
+      type: ["number", "null"]
+    usedPercent:
+      type: ["number", "null"]
+
+SubModalities:
+  properties:
+    name:
+      type: string
+    amountInfo:
+      $ref: "#/definitions/LimitAmountInfo"
+    serviceInfo:
+      $ref: "#/definitions/ServiceInfo"
+    isLimitReached:
+      type: boolean
+  
+Modality:
+  properties:
+    name:
+      type: string
+    amountInfo:
+      $ref: "#/definitions/LimitAmountInfo"
+    serviceInfo:
+      $ref: "#/definitions/ServiceInfo"
+    isLimitReached:
+      type: boolean
+    waitingPeriodDate:
+      type: string
+    subModalities:
+      type: array
+      items:
+        $ref: "#/definitions/SubModalities"
+
+SpacialFeature:
+  properties:
+    feature:
+      type: string
+    amountInfo:
+      $ref: "#/definitions/LimitAmountInfo"
+    year:
+      type: string

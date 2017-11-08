@@ -1,0 +1,48 @@
+/api/ssp/memberships/{membershipId}/ancillaryClaims:
+  x-swagger-router-controller: claimHistoryController
+  get:
+    tags:
+      - Claim History
+    operationId: getAncillaryClaimSummaries
+    parameters:
+      - name: membershipId
+        in: path
+        required: true
+        type: integer
+        format: int64
+      - name: fromDate
+        in: query
+        required: false
+        type: string
+        format: datetime
+      - name: toDate
+        in: query
+        required: false
+        type: string
+        format: datetime
+    responses:
+      "200":
+        description: Success
+        schema:
+          $ref: "#/definitions/AncillaryClaimSummary"
+/api/ssp/memberships/{membershipId}/ancillaryClaims/{claimNumber}:
+  x-swagger-router-controller: claimHistoryController
+  get:
+    tags:
+      - Claim History
+    operationId: getAncillaryClaim
+    parameters:
+      - name: membershipId
+        in: path
+        required: true
+        type: integer
+        format: int64
+      - name: claimNumber
+        in: path
+        required: true
+        type: string
+    responses:
+      "200":
+        description: Success
+        schema:
+          $ref: "#/definitions/AncillaryClaim"

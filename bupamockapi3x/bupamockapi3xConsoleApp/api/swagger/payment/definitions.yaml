@@ -1,0 +1,388 @@
+CurrentPaymentDetail:
+  properties:
+    directDebitDetail:
+      $ref: "#/definitions/DirectDebitInfo"
+    pendingSinglePayment:
+      $ref: "#/definitions/SinglePaymentInfo"
+    arrearsInfo:
+      $ref: "#/definitions/ArrearsInfo"
+    recentPaymentOnDishonourPeriod:
+      type: boolean
+    customerType:
+      type: string
+    latestClaimServiceDate:
+      type: ["string", "null"]
+      format: datetime
+    contributer:
+      type: string
+    lastProcessedPaymentInfo:
+      $ref: "#/definitions/LastProcessedPaymentDetail"
+    currentPaymentMethod:
+      type: string
+    paymentRenewalInfo:
+      $ref: "#/definitions/PaymentRenewalInfo"
+
+CalculatorRequestBody:
+  properties:
+    frequency:
+      type: ["string", "null"]
+    startDate:
+      type: ["string", "null"]
+      format: datetime
+    numberOfDays:
+      type: ["number", "null"]
+    numberOfMonths:
+      type: ["number", "null"]
+    amount:
+      type: ["number", "null"]
+    rateDate:
+      type: ["string", "null"]
+      format: datetime
+    amountToRefund:
+      type: ["number", "null"]
+    newDatePaidTo:
+      type: ["string", "null"]
+      format: datetime
+CalculateSinglePaymentData:
+  properties:
+    numberOfDays:
+      type: ["integer", "null"]
+    numberOfMonths:
+      type: ["integer", "null"]
+    startDate:
+      type: ["string", "null"]
+      format: datetime
+    amount:
+      type: ["number", "null"]
+      format: double
+    rateDate:
+      type: ["string", "null"]
+      format: datetime
+    newDatePaidTo:
+      type: ["string", "null"]
+      format: datetime
+    paymentDate:
+      type: ["string", "null"]
+      format: datetime
+RefundRequestBody:
+  properties:
+    amountToRefund:
+      type: number
+      format: double
+    newDatePaidTo:
+      type: ["string", "null"]
+      format: datetime
+DirectDebitInfo:
+  properties:
+    membershipId:
+      type: number
+      format: double
+    datePaidTo:
+      type: ["string", "null"]
+      format: date
+    corporateGroup:
+      type: ["string", "null"]
+    netCost:
+      type: number
+      format: double
+    baseCost:
+      type: number
+      format: double
+    medicareRebate:
+      type: number
+      format: double
+    lhcLoading:
+      type: number
+      format: double
+    discount:
+      type: number
+      format: double
+    gst:
+      type: number
+      format: double
+    frequency:
+      type: ["string", "null"]
+    nextDebitDate:
+      type: ["string", "null"]
+      format: date
+    nextDirectDebitAmount:
+      type: number
+      format: double
+    ongoingDirectdebit:
+      type: number
+      format: double
+    paymentType:
+      type: ["string", "null"]
+    paymentDetails:
+      type: ["string", "null"]
+    catchupDays:
+      type: integer
+      format: int64
+    catchUpAmount:
+      type: number
+      format: double
+    paymentCardExpiry:
+      type: ["string", "null"]
+      format: datetime
+    paymentCardId:
+      type: number
+SinglePaymentInfo:
+  properties:
+    membershipId:
+      type: number
+      format: double
+    datePaidTo:
+      type: ["string", "null"]
+      format: datetime
+    newDatePaidTo:
+      type: ["string", "null"]
+      format: datetime
+    rateDate:
+      type: ["string", "null"]
+      format: datetime
+    corporateGroup:
+      type: ["string", "null"]
+    baseCost:
+      type: number
+      format: double
+    medicareRebate:
+      type: number
+      format: double
+    lhcLoading:
+      type: number
+      format: double
+    discount:
+      type: number
+      format: double
+    gst:
+      type: number
+      format: double
+    netCost:
+      type: number
+      format: double
+    premiumAmount:
+      type: number
+      format: double
+    period:
+      type: number
+      format: integer
+    periodType:
+      type: ["string", "null"]
+    paymentDate:
+      type: ["string", "null"]
+      format: date
+    paymentType:
+      type: ["string", "null"]
+    paymentDetails:
+      type: ["string", "null"]
+    paymentCardId:
+      type: number
+RefundPaymentInfo:
+  properties:
+    membershipId:
+      type: number
+      format: double
+    datePaidTo:
+      type: ["string", "null"]
+      format: datetime
+    newDatePaidTo:
+      type: ["string", "null"]
+      format: datetime
+    corporateGroup:
+      type: ["string", "null"]
+    refundAmount:
+      type: number
+      format: double
+    payee:
+      type: ["string", "null"]
+    paymentType:
+      type: ["string", "null"]
+    paymentDetails:
+      type: ["string", "null"]
+    latestClaimServiceDate:
+      type: string
+      format: date
+    contributor:
+      type: string
+    withinDishonourPeriod:
+      type: boolean
+    paymentCardId:
+      type: number
+ArrearsInfo:
+  properties:
+    amount:
+      type: number
+      format: double
+    days:
+      type: integer
+PaymentCardInfo:
+  properties:
+    cardBrandName:
+      type: string
+    cardHolderName:
+      type: string
+    personPaymentCardId:
+      type: number
+    maskedCardNumber:
+      type: string
+    expiryMonth:
+      type: string
+    expiryYear:
+      type: string
+    paymentCardId:
+      type: number
+    modifiedDate:
+      type: string
+      format: date
+DirectDebitSetupInformation:
+  properties:
+    startDate:
+      type: ["string", "null"]
+      format: datetime
+    paymentType:
+      type: ["string"]
+    personPaymentCardId:
+      type: ["number", "null"]
+    bankAccountDetails:
+      $ref: "#/definitions/BankAccount"
+    frequency:
+      type: ["string"]
+SinglePaymentTransactionInfo:
+  properties:
+    membershipId:
+      type: number
+    paymentDate:
+      type: string
+      format: datetime
+    paymentType:
+      type: string
+    personPaymentCardId:
+      type: ["number", "null"]
+    premiumAmount:
+      type: number
+    bankAccountDetails:
+      $ref: "#/definitions/BankAccount"
+    chequeDetails:
+      $ref: "#/definitions/Cheque"
+RefundTransactionInfo:
+  properties:
+    paymentType:
+      type: ["string"]
+    personPaymentCardId:
+      type: ["number", "null"]
+    refundAmount:
+      type: number
+    bankAccountDetails:
+      $ref: "#/definitions/BankAccount"
+InputUpdatePaymentCardExpiryDate:
+  properties:
+    cardExpiryMonth:
+      type: string
+    cardExpiryYear:
+      type: string
+    sessionId:
+      type: number
+MembershipPolicyStatus:
+  properties:
+    enrolmentDate:
+      type:  string
+      format: date
+    statusDate:
+      type: string
+      format: date
+    status:
+      type: string
+    statusReason:
+     type: string
+LastProcessedPaymentDetail:
+  properties:
+    paymentType:
+      type: string
+    paymentDetails:
+      type: string
+    paymentCard:
+      $ref: "#/definitions/PaymentCardInfo"
+    isWithinDishonourPeriod:
+      type: boolean
+PaymentRenewalInfo:
+  properties:
+    amount:
+      type: number
+    frequency:
+      type: string
+    datePaidTo:
+      type: ["string"]
+      format: datetime
+    rateSummary:
+      $ref: "#/definitions/RateSummaryInfo"
+RateSummaryInfo:
+  properties:
+    rebateAmount:
+      type: number
+    rebatePercent:
+      type: number
+    lHCAmount:
+      type: number
+    lHCPercent:
+      type: number
+    discountAmount:
+      type: number
+    discountPercent:
+      type: number
+    baseAmount:
+      type: number
+    gST:
+      type: number
+    netAmount:
+      type: number
+BankAccount:
+  properties:
+    accountName:
+      type: string
+    accountNumber:
+      type: string
+    bsbNumber:
+      type: string
+Cheque:
+  properties:
+    bsbNumber:
+      type: string
+      maxLength: 6
+    chequeNumber:
+      type: string
+      maxLength: 7
+    drawerName:
+      type: string
+    chequeDate:
+      type: ["string", "null"]
+      format: datetime
+RealTimePaymentStatusResponse:
+  properties:
+    receiptId:
+      type: ["number","null"]
+    transactionId:
+      type: number
+    transactionStatus:
+      type: string
+    rejectionReason:
+      type: string
+BsbInformation:
+  properties:
+    branchName:
+      type: string
+    bankName:
+      type: string
+    bsbNumber:
+      type: string
+    isActive:
+      type: boolean
+MembershipTransactionRequest:
+  properties:
+    membershipId:
+      type: number
+    lanId:
+      type: string
+    sessionId:
+      type: string
+    transactionId:
+      type: number

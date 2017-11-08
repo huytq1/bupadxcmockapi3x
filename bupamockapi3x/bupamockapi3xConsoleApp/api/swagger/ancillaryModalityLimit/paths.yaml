@@ -1,0 +1,22 @@
+/api/ssp/memberships/{membershipId}/persons/{personId}/AncillaryModalityLimit:
+  x-swagger-router-controller: ancillaryModalityLimitController
+  get:
+    tags:
+      - Ancillary Modality
+    operationId: getAncillaryModalityLimit
+    parameters:
+      - name: membershipId
+        in: path
+        required: true
+        type: integer
+        format: int64
+      - name: personId
+        in: path
+        required: true
+        type: integer
+        format: int64
+    responses:
+      "200":
+        description: Success
+        schema:
+          $ref: "#/definitions/AncillaryModalityLimit"

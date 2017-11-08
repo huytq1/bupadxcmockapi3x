@@ -1,0 +1,131 @@
+  /api/ssp/payments/{membershipId}:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: paymentHistoryController
+    get:
+      tags:
+        - Payment History
+      description: Returns 'paymenthistory' to the caller
+      # used as the method name of the controller
+      operationId: getPaymentHistory
+      parameters:
+        - name: membershipId
+          in: path
+          description: membership Id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Success
+          schema:
+              $ref: "#/definitions/PaymentHistory"
+        # responses may fall through to errors
+        default:
+          description: Error
+  /api/ssp/memberships/{membershipId}/payments:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: paymentHistoryController
+    get:
+      tags:
+        - Payment History
+      description: Returns 'paymenthistory' to the caller - Change WDD 25/08/2017
+      # used as the method name of the controller
+      operationId: getPaymentHistory
+      parameters:
+        - in: path
+          name: membershipId
+          description: membership Id
+          required: true
+          type: integer
+          format: int64
+        - in: query
+          name: startDate  
+          description: start Date
+          required: false
+          type: string
+          format: datetime
+        - in: query
+          name: endDate  
+          description: End Date
+          required: false
+          type: string
+          format: datetime
+      responses:
+        "200":
+          description: Success
+          schema:
+              $ref: "#/definitions/PaymentHistory"
+        # responses may fall through to errors
+        default:
+          description: Error
+
+# History Detail 
+  /api/ssp/payments/{membershipId}/{transactionId}:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: paymentHistoryController
+    get:
+      tags:
+        - Payment History
+      description: Returns 'Hello' to the caller
+      # used as the method name of the controller
+      operationId: getPaymentDetail
+      parameters:
+        - name: membershipId
+          in: path
+          description: id
+          required: true
+          type: integer
+          format: int64
+        - name: transactionId
+          in: path
+          description: transaction id
+          required: true
+          type: integer     
+          format: int64          
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/PaymentHistoryDetail"
+        # responses may fall through to errors
+        default:
+          description: Error
+
+# WDD Changed on  25/08/2017
+  /api/ssp/memberships/{membershipId}/payments/{transactionId}:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: paymentHistoryController
+    get:
+      tags:
+        - Payment History
+      description: Returns 'Hello' to the caller -- WDD Changed on  25/08/2017
+      # used as the method name of the controller
+      operationId: getPaymentDetail
+      parameters:
+        - in: path
+          name: membershipId
+          description: id
+          required: true
+          type: integer
+          format: int64
+        - in: path
+          name: transactionId
+          description: transaction id
+          required: true
+          type: integer     
+          format: int64          
+        - in: query
+          name: transactionIdType
+          description: Transaction Type
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/PaymentHistoryDetail"
+        # responses may fall through to errors
+        default:
+          description: Error

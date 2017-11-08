@@ -1,0 +1,11 @@
+BsbInformation:
+  properties:  
+    branchName:
+      type: string
+    bankName:
+      type: string
+    bsbNumber: 
+      type: number
+      format: double
+    isActive:
+      type: boolean  
